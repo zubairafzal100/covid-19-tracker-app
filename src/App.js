@@ -1,26 +1,43 @@
-import React from 'react';
-import logo from './logo.svg';
+import React, { Component } from 'react';
+import { VerticleButton as ScrollUpButton } from 'react-scroll-up-button';
+import { fetchData } from './GlobalApi/GlobalApi';
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+// Importing components
+import Header from './components/Header/Header';
+import Image from './components/Images/Covid-img.jpeg';
+import GlobalDataCards from './components/GlobalDataCards/GlobalDataCards';
+import Footer from './components/Footer/Footer';
+
+
+
+class App extends Component {
+
+  state = {
+    data: {},
+  }
+
+  async componentDidMount() {
+    const fetchedData = await fetchData();
+
+    this.setState({ data: fetchedData })
+  }
+
+  render() {
+
+    const { data } = this.state;
+
+    return (
+      <div>
+        <Header />
+        <img className="img" src={Image} alt="Covid-19 Cover Img" />
+        <GlobalDataCards data={data} />
+        <Footer />
+        <ScrollUpButton />
+      </div>
+    );
+  }
 }
 
 export default App;
