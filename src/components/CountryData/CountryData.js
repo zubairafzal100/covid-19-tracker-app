@@ -8,9 +8,6 @@ const useStyles = makeStyles({
     container: {
         textAlign: 'center',
     },
-    formControl: {
-        width: '30%',
-    }
 });
 
 
@@ -29,9 +26,9 @@ export const CountryData = ({ handleCountryChange }) => {
 
     return (
         <div className={classes.container}>
-            <FormControl className={classes.formControl}>
+            <FormControl className="formControl">
                 <NativeSelect defaultValue="" onChange={(e) => handleCountryChange(e.target.value)}>
-                    <option value="global">Global</option>
+                    <option value="">Global</option>
                     {fetchedCountries.map((country, ind) => <option key={ind} value={country}>{country}</option>)}
                 </NativeSelect>
             </FormControl>

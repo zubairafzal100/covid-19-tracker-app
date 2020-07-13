@@ -10,7 +10,8 @@ import cx from 'classnames';
 
 const useStyles = makeStyles({
     container: {
-        margin: '50px 0',
+        width: '100%',
+        margin: '50px -12px',
     },
     card: {
         margin: '0 2%',
@@ -38,7 +39,7 @@ export default function GlobalDataCards({ data: { confirmed, recovered, deaths, 
             <h1 className="h1">Cards Representation of Covid-19 Victims</h1>
             <div className={classes.container}>
                 <Grid container spacing={3} justify="center">
-                    <Grid item component={Card} xs={12} md={3} className={cx(classes.card, classes.infected)}>
+                    <Grid item component={Card} xs={12} md={3} id="card" className={cx(classes.card, classes.infected)}>
                         <CardContent>
                             <Typography color="textSecondary" gutterBottom>Infected</Typography>
                             <Typography variant="h5">
@@ -48,7 +49,7 @@ export default function GlobalDataCards({ data: { confirmed, recovered, deaths, 
                             <Typography variant="body2">Number of Active Cases of Covid-19</Typography>
                         </CardContent>
                     </Grid>
-                    <Grid item component={Card} xs={12} md={3} className={cx(classes.card, classes.recovered)}>
+                    <Grid item component={Card} xs={12} md={3} id="card" className={cx(classes.card, classes.recovered)}>
                         <CardContent>
                             <Typography color="textSecondary" gutterBottom>Recovered</Typography>
                             <Typography variant="h5">
@@ -58,7 +59,7 @@ export default function GlobalDataCards({ data: { confirmed, recovered, deaths, 
                             <Typography variant="body2">Number of Recoveries from Covid-19</Typography>
                         </CardContent>
                     </Grid>
-                    <Grid item component={Card} xs={12} md={3} className={cx(classes.card, classes.deaths)}>
+                    <Grid item component={Card} xs={12} md={3} id="card" className={cx(classes.card, classes.deaths)}>
                         <CardContent>
                             <Typography color="textSecondary" gutterBottom>Deaths</Typography>
                             <Typography variant="h5">

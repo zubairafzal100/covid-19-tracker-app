@@ -27,7 +27,7 @@ export default function Footer() {
       <AppBar position="static">
         <Toolbar>
           <Typography variant="h6" className={classes.title}>
-            Covid-19 Tracker App Made by Zubair Afzal
+            <span className="footer-text">Covid-19 Tracker App Made by Zubair Afzal</span>
           </Typography>
         </Toolbar>
       </AppBar>

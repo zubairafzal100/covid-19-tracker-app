@@ -1,19 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import '../../App.css';
-import { makeStyles } from '@material-ui/core/styles';
 import { fetchDailyData } from '../../GlobalApi/GlobalApi';
 import { Line, Bar } from 'react-chartjs-2';
-
-
-const useStyles = makeStyles({
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
-        margin: '0 auto',
-        marginBottom: '40px',
-        width: '85%',
-    },
-});
 
 
 export default function GraphicalData({ data: { confirmed, recovered, deaths }, country }) {
@@ -72,11 +60,9 @@ export default function GraphicalData({ data: { confirmed, recovered, deaths }, 
                 />
             ) : null
     );
-
-    const classes = useStyles();
     return (
         <div>
-            <div className={classes.container}>
+            <div className="graphs-container">
                 {country ? barChart : lineChart}
             </div>
         </div>

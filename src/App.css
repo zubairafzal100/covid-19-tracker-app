@@ -6,6 +6,25 @@ body {
     width: 100%;
 }
 
+.title-p {
+    color: #fff;
+    font-size: 24px;
+    text-decoration: none;
+    margin: 0 10px;
+}
+
+.link {
+    color: #fff;
+    font-size: 18px;
+    text-decoration: none;
+    padding: 4px 12px 6px 12px;
+}
+
+.link:hover {
+    background-color: darkblue;
+    border-radius: 50px;
+}
+
 .h1 {
     text-align: center;
     margin-top: 40px;
@@ -13,23 +32,55 @@ body {
     font-size: 34px;
 }
 
-.h2 {
-    text-align: center;
-    color: grey;
-    font-size: 26px;
+.formControl {
+    width: 30%;
+}
+
+.graphs-container {
+    width: 85%;
+    display: flex;
+    justify-content: center;
+    margin: 0 auto;
+    margin-bottom: 40px;
 }
 
 @media (max-width: 770px) {
     .container {
         margin: 0 10%;
     }
+    .title-p {
+        font-size: 16px;
+        margin: 0;
+    }
+    .link {
+        font-size: 16px;
+        padding: 4px 12px 6px 12px;
+    }
+    .link:hover {
+        background-color: darkblue;
+        border-radius: 50px;
+    }
     .h1 {
+        text-align: left;
+        font-size: 24px;
+    }
+    #card {
+        margin: 2% 0;
+        margin-left: 20px;
+    }
+    .formControl {
+        width: 100%;
+    }
+    .graphs-container {
+        width: 100%;
+    }
+    .footer-text {
         font-size: 16px;
     }
-    .h2 {
+}
+
+@media (max-width: 359px) {
+    .footer-text {
         font-size: 14px;
-    }
-    .card {
-        margin: 2% 0;
     }
 }
