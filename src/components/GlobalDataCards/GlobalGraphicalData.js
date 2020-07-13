@@ -12,7 +12,7 @@ export default function GraphicalData({ data: { confirmed, recovered, deaths }, 
         const fecthAPI = async () => {
             setDailyData(await fetchDailyData());
         }
-        fecthAPI()
+        fecthAPI();
     }, []);
 
     const lineChart = (
@@ -20,22 +20,21 @@ export default function GraphicalData({ data: { confirmed, recovered, deaths }, 
             ? (
                 <Line
                     data={{
-                        lables: dailyData.map(({ date }) => date),
-                        dataset: [{
+                        labels: dailyData.map(({ date }) => date),
+                        datasets: [{
                             data: dailyData.map(({ confirmed }) => confirmed),
-                            lable: 'Infected',
+                            label: 'Infected',
                             borderColor: '#3333ff',
                             fill: true,
                         }, {
                             data: dailyData.map(({ deaths }) => deaths),
-                            lable: 'Deaths',
+                            label: 'Deaths',
                             borderColor: 'red',
                             backgroundColor: 'rgba(255, 0, 0, 0.5',
                             fill: true,
                         }],
                     }}
                     options={{
-                        legend: { display: false },
                         title: { display: true, text: 'Line Chart Statistics Of Covid-19 Casses' },
                     }}
                 />) : null
