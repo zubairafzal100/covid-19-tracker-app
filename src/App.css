@@ -1,7 +1,35 @@
 body {
     background-color: #e0e0e0;
 }
+
 .img {
     width: 100%;
 }
 
+.h1 {
+    text-align: center;
+    margin-top: 40px;
+    margin-bottom: 35px;
+    font-size: 34px;
+}
+
+.h2 {
+    text-align: center;
+    color: grey;
+    font-size: 26px;
+}
+
+@media (max-width: 770px) {
+    .container {
+        margin: 0 10%;
+    }
+    .h1 {
+        font-size: 16px;
+    }
+    .h2 {
+        font-size: 14px;
+    }
+    .card {
+        margin: 2% 0;
+    }
+}

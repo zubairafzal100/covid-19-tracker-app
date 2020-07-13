@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import '../../App.css';
 import { makeStyles } from '@material-ui/core/styles';
 import { fetchDailyData } from '../../GlobalApi/GlobalApi';
 import { Line, Bar } from 'react-chartjs-2';
@@ -8,18 +9,14 @@ const useStyles = makeStyles({
     container: {
         display: 'flex',
         justifyContent: 'center',
-        alignItems: 'center',
+        margin: '0 auto',
+        marginBottom: '40px',
         width: '85%',
-    },
-    h2: {
-        textAlign: 'center',
-        color: 'grey',
-        fontSize: '26px',
     },
 });
 
 
-export default function GraphicalData() {
+export default function GraphicalData({ data: { confirmed, recovered, deaths }, country }) {
 
     const [dailyData, setDailyData] = useState([]);
 
@@ -28,10 +25,9 @@ export default function GraphicalData() {
             setDailyData(await fetchDailyData());
         }
         fecthAPI()
-    });
+    }, []);
 
     const lineChart = (
-
         dailyData.length
             ? (
                 <Line
@@ -50,15 +46,38 @@ export default function GraphicalData() {
                             fill: true,
                         }],
                     }}
+                    options={{
+                        legend: { display: false },
+                        title: { display: true, text: 'Line Chart Statistics Of Covid-19 Casses' },
+                    }}
                 />) : null
+    );
+
+    const barChart = (
+        confirmed
+            ? (
+                <Bar
+                    data={{
+                        labels: ['Infected', 'Recovered', 'Deaths'],
+                        datasets: [{
+                            label: 'People',
+                            backgroundColor: ['rgba(0, 0, 255, 0.5)', 'rgba(0, 255, 0, 0.5)', 'rgba(255, 0, 0, 0.5)'],
+                            data: [confirmed.value, recovered.value, deaths.value]
+                        }]
+                    }}
+                    options={{
+                        legend: { display: false },
+                        title: { display: true, text: `Current state in ${country}` },
+                    }}
+                />
+            ) : null
     );
 
     const classes = useStyles();
     return (
         <div>
-            <h2 className={classes.h2}>Line Chart Statistics Of Covid-19 Casses</h2>
             <div className={classes.container}>
-                {lineChart}
+                {country ? barChart : lineChart}
             </div>
         </div>
     );

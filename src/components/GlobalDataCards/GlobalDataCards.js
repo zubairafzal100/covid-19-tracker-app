@@ -1,20 +1,14 @@
 import React from 'react';
+import '../../App.css'
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import CountUp from 'react-countup';
-import GraphicalData from './GlobalGraphicalData';
 import cx from 'classnames';
 
 const useStyles = makeStyles({
-    h1: {
-        textAlign: 'center',
-        marginTop: '40px',
-        marginBottom: '35px',
-        fontSize: '34px',
-    },
     container: {
         margin: '50px 0',
     },
@@ -41,7 +35,7 @@ export default function GlobalDataCards({ data: { confirmed, recovered, deaths, 
 
     return (
         <div>
-            <h1 className={classes.h1}>Cards Representation of Covid-19 Victims</h1>
+            <h1 className="h1">Cards Representation of Covid-19 Victims</h1>
             <div className={classes.container}>
                 <Grid container spacing={3} justify="center">
                     <Grid item component={Card} xs={12} md={3} className={cx(classes.card, classes.infected)}>
@@ -76,8 +70,6 @@ export default function GlobalDataCards({ data: { confirmed, recovered, deaths, 
                     </Grid>
                 </Grid>
             </div>
-            <h1 className={classes.h1}>Graphical Representation Of Covid-19 Victims</h1>
-            <GraphicalData />
         </div>
     );
 }
